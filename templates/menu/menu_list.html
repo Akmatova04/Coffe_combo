@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center mb-5">{{ page_title }}</h1>
+
+{% for category in categories %}
+    {% if category.items.all %} {# Эгер категорияда элементтер болсо гана көрсөтүү #}
+        <h2 class="mt-4 mb-3">{{ category.name }}</h2>
+        <div class="row">
+            {% for item in category.items.all %}
+            <div class="col-md-4 col-lg-3"> <!-- 4 колонка -->
+                 <div class="card">
+                    {% if item.image %}
+                    <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.name }}</h5>
+                        {% if item.description %}
+                        <p class="card-text" style="font-size: 0.9em; color: #666;">{{ item.description|truncatewords:15 }}</p>
+                        {% endif %}
+                        <p class="price">Баасы: {{ item.price }} сом</p>
+                        <a href="#" class="btn btn-dark btn-sm order-button">Буйрутма</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% empty %}
+    <p class="text-center">Меню азырынча бош.</p>
+{% endfor %}
+
+{% endblock %}

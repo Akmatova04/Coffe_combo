@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-center mb-4">Биздин өзгөчө сунуштар</h2>
+
+{% if special_items %}
+<div class="row">
+    {% for item in special_items %}
+    <div class="col-md-4 col-lg-3"> <!-- Сиздин мисалга окшош 4 колонка -->
+        <div class="card">
+            {% if item.image %}
+            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ item.name }}</h5>
+                {% if item.description %}
+                <p class="card-text" style="font-size: 0.9em; color: #666;">{{ item.description|truncatewords:15 }}</p>
+                {% endif %}
+                <p class="price">Баасы: {{ item.price }} сом</p>
+                <a href="#" class="btn btn-dark btn-sm order-button">Буйрутма</a> <!-- Бул баскычтын иштеши өзүнчө логика талап кылат -->
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p class="text-center">Азыркы учурда өзгөчө сунуштар жок.</p>
+{% endif %}
+
+<div class="text-center mt-4">
+    <a href="{% url 'menu_list' %}" class="btn btn-primary">Толук Менюну көрүү</a>
+</div>
+{% endblock %}

@@ -1,0 +1,126 @@
+/* static/css/style.css */
+
+body {
+    background-color: #f8f9fa; /* Жеңил боз фон (кааласаңыз #ffffff ак кылыңыз) */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Системалык шрифттер */
+}
+
+/* Баракчанын негизги контейнери үчүн кошумча боштуктар */
+.container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* Секциянын аталышы ("Биздин өзгөчө сунуштар") */
+.menu-section-title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-weight: bold;
+    font-size: 2.2em; /* Бир аз кичирээк, бирок дагы эле чоң */
+    color: #333;
+}
+
+/* Меню картасы (Bootstrap .card классын кайра аныктайбыз) */
+.card.menu-item-card { /* .card жана .menu-item-card класстары чогуу болгондо колдонулат */
+    border: none; /* Чек араны алып салуу */
+    border-radius: 12px; /* Орточо жумуру бурчтар */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Жеңилирээк көлөкө */
+    margin-bottom: 30px;
+    background-color: #ffffff; /* Картанын фону ак */
+    overflow: hidden;
+    height: 100%; /* Бир катардагы карталардын бийиктигин теңдөө үчүн */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card.menu-item-card:hover {
+    transform: translateY(-4px); /* Бир аз көтөрүлүү */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Көлөкөнү күчөтүү */
+}
+
+/* Картанын сүрөтү */
+.card.menu-item-card .card-img-top {
+    width: 100%;
+    height: 200px; /* Сүрөттүн бийиктиги */
+    object-fit: cover; /* Сүрөттү туура көрсөтүү */
+    /* border-radius жогору жакка кереги жок, анткени overflow: hidden */
+}
+
+/* Картанын негизги бөлүгү */
+.card.menu-item-card .card-body {
+    padding: 20px; /* Бир аз азыраак ички боштук */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Калган боштукту ээлөө */
+}
+
+/* Картанын аталышы */
+.card.menu-item-card .card-title {
+    font-size: 1.15rem; /* Бир аз кичирээк аталыш */
+    font-weight: 600; /* Bold (700) ордуна semi-bold */
+    margin-bottom: 8px;
+    color: #212529;
+}
+
+/* Картанын тексти (сүрөттөмөсү) */
+.card.menu-item-card .card-text {
+    font-size: 0.9rem; /* Кичирээк шрифт */
+    color: #6c757d; /* Стандарттуу боз түс */
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Баскычты ылдый түртүүгө жардам берет */
+}
+
+/* Баа */
+.card.menu-item-card .price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #343a40; /* Кара боз */
+    margin-bottom: 15px; /* Баскычтан мурунку аралык */
+    margin-top: auto; /* Калган боштуктан кийин жайгашат */
+}
+
+/* Буйрутма баскычы */
+.card.menu-item-card .order-button {
+    background-color: #343a40; /* Сүрөттөгүдөй кара боз */
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Ыңгайлуу өлчөм */
+    border-radius: 6px; /* Бир аз жумуру бурчтар */
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500; /* Орточо калыңдык */
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    align-self: flex-start; /* Баскыч солго жайгашат */
+    /* width: 100%; --- Эгер толук кеңдикте керек болсо, бул сапты кошуңуз */
+    margin-top: auto; /* Картанын түбүнө жабыштыруу */
+}
+
+.card.menu-item-card .order-button:hover {
+    background-color: #23272b; /* Бир аз кочкулураак */
+    color: white;
+}
+
+/* Bootstrap колонкаларынын бийиктигин теңдөө (эгер керек болсо) */
+.row {
+   display: flex;
+   flex-wrap: wrap;
+}
+.row > [class*='col-'] {
+   display: flex;
+   flex-direction: column;
+}
+
+/* Категория аталыштары үчүн (эгер өзүнчө стилдесеңиз) */
+.category-title {
+    font-size: 1.8em;
+    color: #444;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 40px; /* Үстүнкү аралык */
+    margin-bottom: 30px; /* Астыңкы аралык */
+}
